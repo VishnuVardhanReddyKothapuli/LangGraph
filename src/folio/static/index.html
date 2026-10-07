@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2ecdf">
+  <title>Folio — A conversation with your documents</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#question">Skip to chat</a>
+  <aside class="library">
+    <a class="brand" href="/" aria-label="Folio home"><span class="brand-icon" aria-hidden="true">f.</span> folio<span class="brand-dot">.</span></a>
+    <p class="eyebrow">YOUR KNOWLEDGE, IN CONVERSATION</p>
+    <button class="new-chat" id="new-chat"><span aria-hidden="true">＋</span> New conversation</button>
+    <div class="section-label"><h2>Your library</h2><span id="file-count">00</span></div>
+    <form id="upload-form">
+      <label class="upload-box" for="files"><span class="upload-icon" aria-hidden="true">↥</span><strong>Add your documents</strong><span>Choose PDF, TXT, or Markdown</span><span class="file-limit">Up to 10 MB per file</span></label>
+      <input id="files" name="files" type="file" accept=".pdf,.txt,.md" multiple>
+    </form>
+    <p id="upload-status" class="status" role="status">Your documents stay in your local library.</p>
+    <ul id="document-list" aria-label="Documents uploaded this session"></ul>
+    <div class="library-note"><span class="note-mark" aria-hidden="true">✧</span><p>A little less searching.<br>A little more understanding.</p><span class="fine-print">Relevant excerpts are sent to your configured AI provider when you ask a question.</span></div>
+    <footer class="sidebar-footer"><span class="status-dot" aria-hidden="true"></span><span id="connection">Connecting to library…</span></footer>
+  </aside>
+  <main>
+    <header class="topbar"><span>WORKSPACE <span class="slash">/</span> <strong>Document chat</strong></span><span class="context-badge">5,000 token budget</span></header>
+    <div class="conversation" id="conversation">
+      <section class="welcome" id="welcome">
+        <div class="folio-emblem" aria-hidden="true"><span>f.</span></div>
+        <p class="eyebrow">A QUIETER WAY TO FIND ANSWERS</p>
+        <h1>Your documents.<br><em>A clearer perspective.</em></h1>
+        <p class="intro">Bring your notes, reports, and ideas together.<br>Ask a question. Find the answer, with its source.</p>
+        <div class="suggestions" aria-label="Question suggestions">
+          <button data-prompt="What are the main takeaways from these documents?"><span aria-hidden="true">≡</span><strong>Find the essentials</strong><small>Summarize the main takeaways</small><span class="arrow" aria-hidden="true">↗</span></button>
+          <button data-prompt="What actions and deadlines are mentioned in these documents?"><span aria-hidden="true">◷</span><strong>See what comes next</strong><small>Find actions and deadlines</small><span class="arrow" aria-hidden="true">↗</span></button>
+        </div>
+        <p class="welcome-hint">Start by adding a document to your library.</p>
+      </section>
+      <div id="messages" role="log" aria-live="polite" aria-label="Conversation"></div>
+    </div>
+    <div class="composer-area">
+      <p id="chat-status" class="status" role="status"></p>
+      <form id="chat-form" class="composer">
+        <label class="sr-only" for="question">Ask about your documents</label>
+        <textarea id="question" rows="2" maxlength="8000" placeholder="What would you like to understand?"></textarea>
+        <div class="composer-bottom"><span>Grounded in your documents</span><button id="send" type="submit" aria-label="Send question">↑</button></div>
+      </form>
+      <p class="disclaimer">Answers include source excerpts. Always check important details.<span>Enter to send · Shift + Enter for a new line</span></p>
+    </div>
+  </main>
+</body>
+</html>
